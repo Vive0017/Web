@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Health and wealth in Australia</title>
+  <!-- Import Vega, Vega-Lite & Vega-embed (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- custom style -->
+  <style>
+    *{
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    h1{
+      font-weight: 1000;
+    }
+     body{
+       background-color: lightblue;
+     }
+     .page{
+       width: 1200px;    
+       background-color: lightseagreen;   
+       margin: auto;
+       padding: 50px;
+       padding-top: 50px;
+       padding-left: 120px;
+       padding-right: 120px;
+       padding-bottom: 50px;
+    }
+    .vis-container{
+      width: 100%;
+    }
+    .description h2, h1{
+      margin-top:0px;
+    }
+    .description-right {
+      padding-left: 60px;
+    }
+    .description-left{
+      padding-right: 60px;
+    }
+    .pure-g{
+      margin-bottom: 25px;
+    }
+    .small-font{
+        font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+
+ <div class="page">
+   <div>
+     <h1 style="font-size:300%;text-align:center;font-family:'Times New Roman', Times, serif;">Health in Australia</h1>
+   </div>
+
+   <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1 style="font-size:200%;text-align:justify;font-family:Times New Roman;">Introduction</h1>
+        <p style="font-size:100%;text-align:justify;font-family:Helvetica;">
+            This visualization aims to explore health in Australia through publicly availiable data published by the Australian Bureau of Statistics[ABS]. 
+        The visualisation tries to answer the following questions. Are there any differences between the health of males and females? In which state does one live the longest? How are the habits of Australians affecting their life expectancy?
+        </p>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+<!-- pure grid group -->
+<div class="pure-g">
+  <div class="pure-u-1-2">
+    <div class="description description-left">
+      <h2 style="font-size:150%;font-family:Times New Roman;">Figure 1 - Average life expectancy for women by state in Australia in 2020</h2>
+      <p style="font-size:100%;text-align:justify;font-family:Helvetica;">The first visualization shows the average life expectancy by state for women in Australia in 2020.</p>
+    </div>
+  </div>
+  <div class="pure-u-1-2">
+      <div class="description description-left">
+          <h2 style="font-size:150%;font-family:Times New Roman;">Figure 2 - Average life expectancy for men by state in Australia in 2020</h1>
+          <p style="font-size:100%;text-align:justify;font-family:Helvetica;">The first visualization shows the average life expectancy by state for men in Australia in 2020</p>
+      </div>
+  </div>
+</div>
+<!-- end pure grid group -->
+
+<!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="vis1" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+            <div id="vis3" class="vis-container"></div>
+        </div>
+    </div>
+  </div>
+    <!-- end pure grid group -->
+   
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-left"></div>
+        <p style="font-size:100%;text-align:justify;font-family:Helvetica;font-weight:bolder">Tooltip explained:</p>
+        <p style="font-size:100%;text-align:justify;font-family:Helvetica;">Hover over state to see exact percentage</p>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+          <p style="font-size:100%;text-align:justify;font-family:Helvetica;font-weight:bolder">Tooltip explained:</p>
+        <p style="font-size:100%;text-align:justify;font-family:Helvetica;">Hover over state to see exact percentage</p>
+        </div>
+      </div>
+    </div>
+   
+    <!-- pure grid group -->
+   <div class="pure-g">
+    <div class="pure-u-1">
+      <div class="description description-left">
+        <h2 style="font-size:150%;font-family:Times New Roman;">Figure 3 - Overview of chronic diseases in Australia in 2020 </h1>
+        <p style="font-size:100%;text-align:justify;font-family:Helvetica;">The barchart shows a selected number of chronic diseases alongside overall perecentage who do not have any disease or have 1 or more.</p>
+      </div>
+    </div>
+  </div>
+<!-- pure grid group -->
+
+   <!-- pure grid group -->
+   <div class="pure-g">
+    <div class="pure-u-1">
+      <div class="description description-left">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pure-g">
+    <div class="pure-u-1">
+      <div class="description description-left">
+      <p style="font-size:100%;text-align:justify;font-family:Helvetica;font-weight:bolder">Tooltip explained:</p>
+      <p style="font-size:100%;text-align:justify;font-family:Helvetica;">Click on legend to isolate gender. Hover over bar to see exact percentage</p>
+      </div>
+    </div>
+  </div>
+
+<!-- pure grid group -->
+<div class="pure-g">
+  <div class="pure-u-1-3">
+    <h2 style="font-size:150%;text-align:left;font-family:Times New Roman;">Figure 4 - Life expectancy development by gender in Australia over the last 20 years</h1>
+      <p style="font-size:100%;text-align:left;font-family:Helvetica;">Figure 4 shows how the life expectancy has developed in Australia over the past 20 years</p>
+  </div>
+  <div class="pure-u-1-3">
+    <h2 style="font-size:150%;text-align:left;font-family:Times New Roman;">Figure 5 - Proportion of people who have not exceeded lifetime alcohol consumption by gender and age</h1>
+      <p style="font-size:100%;text-align:left;font-family:Helvetica;">Figure 5 explores Australian australian alcohol consumption by year age</p>
+  </div>
+  <div class="pure-u-1-3">
+    <h2 style="font-size:150%;text-align:left;font-family:Times New Roman;">Figure 6 - Self-assessed health status for people aged 18+ in Australia in 2020</h1>
+      <p style="font-size:100%;text-align:left;font-family:Helvetica;">Figure 6 is a piechart that explores the self-assessed health status of Australian adults</p>
+  </div>
+</div>
+<!-- end pure grid group -->
+  <div class="pure-g">
+    <div class="pure-u-1-3">
+      <div class="description description-left">
+          <div id="vis2" class="vis-container"></div>
+      </div>
+  </div>
+    <div class="pure-u-1-3">
+      <div class="description description-left">
+        <div id="vis5" class="vis-container"></div>
+      </div>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="description description-left">
+        <div id="vis6" class="vis-container"></div>
+      </div>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
+    
+   <!-- pure grid group -->
+   <div class="pure-g">
+    <div class="pure-u-1-3">
+      <p style="font-size:100%;text-align:justify;font-family:Helvetica;font-weight:bolder">Tooltip explained:</p>
+      <p style="font-size:100%;text-align:justify;font-family:Helvetica;">Hover over beginning of year to see exact perecentage</p>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="description description-right">
+        <p style="font-size:100%;text-align:justify;font-family:Helvetica;font-weight:bolder">Tooltip explained:</p>
+      <p style="font-size:100%;text-align:justify;font-family:Helvetica;">Hover over slice to see exact percentage</p>
+      </div>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="description description-right">
+        <p style="font-size:100%;text-align:justify;font-family:Helvetica;font-weight:bolder">Tooltip explained:</p>
+      <p style="font-size:100%;text-align:justify;font-family:Helvetica;">Hover over slice to see exact percentage</p>
+      </div>
+    </div>
+  </div>
+<!-- end pure grid group -->
+
+
+   
+
+
+  <script type="text/javascript">
+    var specVis1 = "js/piechart.vg.json";
+    var specVis2 = "js/map.vg.json";
+    var specVis3 = "js/lineplot.vg.json";
+    var specVis4 = "js/barplot1.vg.json";
+    var specVis5 = "js/barplot2.vg.json";
+    var specVis6 = "js/barplot3.vg.json";
+    const spec = {
+  
+
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Average life expectancy in Australia for women in 2020",
+  "width": 300,
+  "height": 300,
+  "projection": {"type": "mercator"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/Vive0017/AustraliaIncome/main/STE_2016_AUST.json",
+    "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STE_NAME16",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Vive0017/AustraliaIncome/main/statelife.csv"
+        },
+        "key": "State",
+        "fields": ["Life"]
+      }
+    },
+    {"calculate": "(datum.Life)/1", "as": "Life expectancy"}
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Life expectancy",
+      "title": "Life expectancy in years",
+      "type": "quantitative",
+      "scale": {"scheme": "blues", "domain": [80,81,82,83,84,85,86,87
+]}
+    }, "tooltip": [
+      {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
+      {"field": "Life expectancy", "type": "quantitative"}
+    ]
+  }
+
+
+};
+
+const spec1 = {
+
+    
+    
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+"title": "Figure 4",
+"data": {"url": "https://raw.githubusercontent.com/Vive0017/AustraliaIncome/main/age.csv"},
+"width": 200,
+"height": 200,
+"mark": {"type": "line","tooltip": true},
+"encoding": {
+  "x": {"field": "year", "type": "temporal"},
+  "y": {"field": "exp", "type": "quantitative","scale": {"domain":[75, 87]}},
+  "color": {"field": "gender", "type": "nominal", "scale": {"scheme": "set2"}}
+}
+
+};   
+
+vegaEmbed("#vis2", spec1, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis1", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    
+    const spec2 = {
+
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "title": "Average life expectancy in Australia for men in 2020",
+        "width": 300,
+        "height": 300,
+        "projection": {"type": "mercator"},
+        "data": {
+        "url": "https://raw.githubusercontent.com/Vive0017/AustraliaIncome/main/STE_2016_AUST.json",
+        "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+  },
+  "transform": [
+    {
+        "lookup": "properties.STE_NAME16",
+        "from": {
+                    "data": {
+                            "url": "https://raw.githubusercontent.com/Vive0017/AustraliaIncome/main/statelifemen.csv"
+        },
+        "key": "State",
+        "fields": ["Life"]
+      }
+    },
+    {"calculate": "(datum.Life)/1", "as": "Life expectancy"}
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Life expectancy",
+      "title": "Life expectancy in years",
+      "type": "quantitative",
+      "scale": {"scheme": "blues", "domain": [80,81,82,83,84,85,86,87
+]}
+    }, "tooltip": [
+      {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
+      {"field": "Life expectancy", "type": "quantitative"}
+    ]
+  }
+
+    }
+    
+    const spec3={
+
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.2.0.json",  
+  "title": {"text": "Chronic diseases in Australia in 2020 (Click on legend to isolate gender)"},
+      "width": 800,
+      "height": 200,
+      "data": {
+        "url": "https://raw.githubusercontent.com/Vive0017/AustraliaIncome/main/chronic3.csv"
+      },
+      "layer": [
+        {
+          "selection": {
+            "continent_highlight": {
+              "type": "multi",
+              "fields": ["Category"],
+              "bind": "legend"
+            }
+          },
+          "mark": {"type": "bar", "tooltip": true},
+          "encoding": {
+            "x": {"field": "Percentage", "type": "quantitative"},
+            "y": {"field": "Disease", "type": "ordinal"},
+            "yOffset": {"field": "Category"},
+            "color": {"field": "Category", "scale": {"scheme": "set2"}
+          },
+            "opacity": {
+              "condition": {"selection": "continent_highlight", "value": 1},
+              "value": 0.2
+            }
+          }
+        }
+      ]
+    }
+    const spec4 = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.2.0.json",
+  "data": {"url": "https://raw.githubusercontent.com/Vive0017/AustraliaIncome/main/alcohol.csv",
+      },
+      "width": 200,
+    "height": 200,
+    "title": {"text": "Figure 5"},
+  "mark": {"type": "bar","tooltip": true},
+  "encoding": {
+    "x": {"field": "age"},
+    "y": {"field": "proportion", "type": "quantitative"},
+    "xOffset": {"field": "sex"},
+    "color": {"field": "sex", "scale": {"scheme": "set2"}}
+  }
+    }
+
+    const spec5 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with embedded data.",
+  "data": {
+    "values": [
+      {"Self-assessed health": "Excellent/very good", "Percentage": 56.2},
+      {"Self-assessed health": "Good", "Percentage": 29.6},
+      {"Self-assessed health": "Fair/Poor", "Percentage": 14.2}
+    
+    ]
+  },
+  "width": 200,
+  "height": 200,
+  "title": {"text": "Figure 6"},
+  "mark": {"type": "arc", "tooltip": true},
+  "encoding": {
+    "theta": {"field": "Percentage", "type": "quantitative"},
+    "color": {"field": "Self-assessed health", "type": "nominal", "scale": {"scheme": "set2"}}
+  }
+}
+
+
+    vegaEmbed("#vis3", spec2, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis4", spec3, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis5", spec4, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#vis6", spec5, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+
+
+    vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  
+    vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis6', specVis6, {"actions": false}).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+  
+  </script>
+  </body>
+  </html>
